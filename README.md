@@ -3,6 +3,24 @@
 A Django-based application where each company manages its own orders and products.
 
 ---
+### Please After Cloning This Proj, Go to ordering/admin.py and write next code:
+---
+---
+from django.contrib import admin
+from .models import Product, order, company, profile
+admin.site.register(company)
+admin.site.register(profile)
+admin.site.register(order)
+admin.site.register(Product)
+
+### Then run server: 1-python manage.py createsuperuser 
+username: as u like
+email: as u like
+password: as u like
+2-python manage.py runserver
+open http://127.0.0.1:8000/admin and add companies, products, orders
+### Then back to admin.py again and write code of this repo🤗
+---
 
 ## 🚀 Features
 
