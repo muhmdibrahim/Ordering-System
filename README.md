@@ -57,6 +57,7 @@ Role: operator | viewer
 - AddProduct(operator role only, company-specific, with validation, product  created by operator automatically)
 - OrderListView(all roles, if action = 'created' which means the order was created by the user now so show it above the page, then show all orders anyway)
 - AddOrder(operator role only and company belongs to selected product by default, - also quantity must be <= stock) using django-forms
+- ### Product.stock -= quantity(stock decrease by quantity after create order)
 - DeleteProduct(soft deletion, operator role only)
 ### Admin Panel
 - Products Admin:
@@ -136,9 +137,6 @@ Log in at: http://127.0.0.1:8000/admin
 │   └── css
 │   │      └──style.css
 ├── └── ...
-│
-├── fixtures/
-│   └── demo_data.json
 │
 ├── db.sqlite3
 ├── manage.py
