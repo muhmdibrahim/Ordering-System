@@ -48,6 +48,8 @@ def create_order(request):
         )
         orders = order.objects.all()
         action = 'created'
+        Product.stock -= quantity
+        Product.save()
         return render(request, 'orders.html', {'order': new_order, 'orders': orders, 'action': action})
     else:
         orders = order.objects.all()
