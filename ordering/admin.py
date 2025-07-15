@@ -23,7 +23,7 @@ class ProductAdmin(admin.ModelAdmin):
             obj.company = request.user.profile.company
         obj.save()
     def has_add_permission(self, request):
-        return request.user.is_authenticated and request.user.profile.role == 'operator'
+        return request.user.is_authenticated and request.user.is_superuser and request.user.profile.role == 'operator'
 
 import pandas as pd
 from django.http import HttpResponse
@@ -45,6 +45,7 @@ class OrderAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         if not obj.pk:
             obj.created_by = request.user.profile.user
+            obj.company = request.user.profile.company
         obj.save()
     def has_add_permission(self, request): 
-        return request.user.is_authenticated and request.user.profile.role == 'operator'
+        return request.user.is_authenticated and request.user.is_superuser and request.user.profile.role == 'operator'
