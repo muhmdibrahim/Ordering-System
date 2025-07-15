@@ -33,9 +33,15 @@ Role: operator | viewer
 - ProductListView(all roles but only active products)
 - AddProduct(operator role only, company-specific, with validation, product  created by operator automatically)
 - OrderListView(all roles, if action = 'created' which means the order was created by the user now so show it above the page, then show all orders anyway)
-- AddOrder(operator role only and company belongs to selected product by default, - also quantity must be <= stock)
+- AddOrder(operator role only and company belongs to selected product by default, - also quantity must be <= stock) using django-forms
 - DeleteProduct(soft deletion, operator role only)
 ### Admin Panel
+- Products Admin:
+- # permission to add products for operator user only.
+- Bulk action: mark selected products inactive
+- Orders Admin:
+- # permission to add orders for operator user only.
+- Action: export orders as CSV with appropriate details
 ---
 
 ## 🧰 Tech Stack
