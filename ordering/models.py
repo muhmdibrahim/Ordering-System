@@ -8,7 +8,7 @@ class company(models.Model):
     def __str__(self):
         return self.name
 
-class profile(models.Model):
+class User(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     company = models.ForeignKey(company, on_delete=models.CASCADE)
     roles = [
