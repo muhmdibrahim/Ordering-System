@@ -3,7 +3,12 @@
 A Django-based application where each company manages its own orders and products.
 
 ---
-### Please After Cloning This Proj, Go to ordering/admin.py and write next code:
+### Please After Cloning This Proj,
+1-Apply migrations
+open-bash:
+python manage.py makemigrations
+python manage.py migrate
+2-Go to ordering/admin.py and write next code:
 ---
 ---
 from django.contrib import admin
