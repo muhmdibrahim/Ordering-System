@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Poultry Task</title>
+    </head>
+<body>
+    <div class="delayed-content">
+        <h1>Product List</h1>
+        <p><b>Welcome {{user}} </b></p>
+        <p>only <b>active</b> products are shown</p>
+    </div>
+    
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Company</th>
+            <th>User</th>
+            <th>Status</th>
+            <th>Created At</th>
+            <th>Actions</th>
+        </tr>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.stock }}</td>
+                <td>{{ product.price }}</td>
+                <td>{{ product.company }}</td>
+                <td>{{ product.created_by }}</td>
+                <td>{{ product.is_active|yesno:"Active,Inactive" }}</td>
+                <td>{{ product.created_at }}</td>
+                <td>
+                    <form method="post" action="{% url 'delete_product' product.id %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-del">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="7">No products available.</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <div class="delayed-content">
+        <h2>Add Product</h2>
+    </div>
+    <form action="{% url 'add_product' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn-submit">Add Product</button>
+    </form>
+    <div class="delayed-content">
+        <h2>Add New Order</h2>
+    </div>
+
+    <form method="post" action="{% url 'create_order' %}">
+        {% csrf_token %}
+        <label for="product_id">Select Product:</label>
+        <select name="product_id" id="product_id" required>
+            <option value="">-- Choose a product --</option>
+            {% for product in products %}
+                <option value="{{ product.id }}">{{ product.name }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="quantity">Quantity:</label>
+        <input type="number" name="quantity" id="quantity" required min="1">
+        <br><br>
+        <button type="submit" class="btn-submit">Create Order</button>
+    </form>
+    <script>
+        setTimeout(() => {
+            const elements = document.querySelectorAll('.delayed-content');
+            elements.forEach(el => el.classList.add('show'));
+        }, 1000);
+    </script>
+</body>
+</html>
+{% endblock %}
