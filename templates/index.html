@@ -1,28 +1,29 @@
 {% extends 'base.html' %}
+{% load i18n %}
 {% load static %}
 {% block content %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
     <head>
         <title>Poultry Task</title>
     </head>
 <body>
     <div class="delayed-content">
-        <h1>Product List</h1>
-        <p><b>Welcome {{user}} </b></p>
-        <p>only <b>active</b> products are shown</p>
+        <h1>{% trans "Product List" %}</h1>
+        <p><b>{% trans "Welcome" %} {{user}} </b></p>
+        <p>{% trans "only" %} <b>{% trans "active" %}</b> {% trans "products are shown" %}</p>
     </div>
     
     <table>
         <tr>
-            <th>Name</th>
-            <th>Stock</th>
-            <th>Price</th>
-            <th>Company</th>
-            <th>User</th>
-            <th>Status</th>
-            <th>Created At</th>
-            <th>Actions</th>
+            <th> {% trans "Name" %} </th>
+            <th> {% trans "Stock" %} </th>
+            <th> {% trans "Price" %} </th>
+            <th> {% trans "Company" %} </th>
+            <th> {% trans "User" %} </th>
+            <th> {% trans "Status" %} </th>
+            <th> {% trans "Created At" %} </th>
+            <th>{% trans "Actions" %}</th>
         </tr>
         {% for product in products %}
             <tr>
@@ -31,48 +32,48 @@
                 <td>{{ product.price }}</td>
                 <td>{{ product.company }}</td>
                 <td>{{ product.created_by }}</td>
-                <td>{{ product.is_active|yesno:"Active,Inactive" }}</td>
+                <td>{{ product.is_active|yesno:'Active,Inactive' }}</td>
                 <td>{{ product.created_at }}</td>
                 <td>
-                    <form method="post" action="{% url 'delete_product' product.id %}">
+                    <form method="post" action="{% url 'delete_product' product.id %}" class="delete-form">
                         {% csrf_token %}
-                        <button type="submit" class="btn-del">Delete</button>
+                        <button type="submit" class="btn-del">{% trans "Delete" %}</button>
                     </form>
                 </td>
             </tr>
         {% empty %}
             <tr>
-                <td colspan="7">No products available.</td>
+                <td colspan="7">{% trans "No products available." %}</td>
             </tr>
         {% endfor %}
     </table>
 
     <div class="delayed-content">
-        <h2>Add Product</h2>
+        <h2>{% trans "Add Product" %}</h2>
     </div>
-    <form action="{% url 'add_product' %}" method="post">
+    <form action="{% url 'add_product' %}" method="post" class="product-form">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="btn-submit">Add Product</button>
+        <button type="submit" class="btn-submit">{% trans "Add Product" %}</button>
     </form>
     <div class="delayed-content">
-        <h2>Add New Order</h2>
+        <h2>{% trans "Add New Order" %}</h2>
     </div>
 
-    <form method="post" action="{% url 'create_order' %}">
+    <form method="post" action="{% url 'create_order' %}" class="order-form">
         {% csrf_token %}
-        <label for="product_id">Select Product:</label>
+        <label for="product_id">{% trans "Select Product:" %}</label>
         <select name="product_id" id="product_id" required>
-            <option value="">-- Choose a product --</option>
+            <option value="">{% trans "-- Choose a product --" %}</option>
             {% for product in products %}
                 <option value="{{ product.id }}">{{ product.name }}</option>
             {% endfor %}
         </select>
         <br>
-        <label for="quantity">Quantity:</label>
+        <label for="quantity">{% trans "Quantity:" %}</label>
         <input type="number" name="quantity" id="quantity" required min="1">
         <br><br>
-        <button type="submit" class="btn-submit">Create Order</button>
+        <button type="submit" class="btn-submit">{% trans "Create Order" %}</button>
     </form>
     <script>
         setTimeout(() => {

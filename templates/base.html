@@ -1,16 +1,63 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
 <head>
     <title>Poultry Task</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+    <style>
+        .language-switcher {
+            display: inline-flex;
+            align-items: center;
+            background-color: transparent;
+        }
+        .language-switcher form{
+            display: inline-flex;
+            background: transparent;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 0;
+            padding: 0;
+        }
+        .language-switcher select,
+        .language-switcher input[type="submit"] {
+            background: transparent;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+            color: white;
+            padding: 1px 4px;
+        }
+        .language-switcher select {
+            margin: 2px 4px;
+            padding-top: 2px;
+        }
+        .language-switcher input[type="submit"] {
+            margin: 2px 4px;
+            padding-top: 4px;
+        }
+        .language-switcher input[type="submit"]:hover {
+            color: #ccc;
+        }
+</style>
 <body>
     <header>
         <nav>
             <ul>
-                <li><a href="{% url 'product_list' %}">Products</a></li>
-                <li><a href="{% url 'create_order' %}">Orders</a></li>
+                <li><a href="{% url 'product_list' %}"> {% trans "Products" %}</a></li>
+                <li><a href="{% url 'create_order' %}">{% trans "Orders" %}</a></li>
+                <li class="language-switcher">
+                    <form action="{% url 'set_language' %}" method="post">
+                        {% csrf_token %}
+                        <select name="language">
+                            <option value="en">English</option>
+                            <option value="ar">العربية</option>
+                        </select>
+                        <input type="submit" value="{% trans 'Switch Language' %}">
+                    </form>
+                </li>
             </ul>
         </nav>
     </header>
@@ -19,7 +66,7 @@
     {% endblock %}
     
     <footer>
-        <p>&copy; July 2025 Poultry Task, created by@Mohamed Ibrahim</p>
+        <p>&copy; {% trans "July 2025 Poultry Task, created by @Mohamed Ibrahim" %}</p>
     </footer>
 </body>
 </html>

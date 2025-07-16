@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Product, order, company, profile
 from .forms import ProductForm
+from django.utils.translation import gettext as _
 # Create your views here.
 @login_required
 def get_products(request):
@@ -22,7 +23,12 @@ def add_product(request):
                 return HttpResponse("Product added successfully.", status=201)
             else:
                 form = ProductForm()
+                return render(request, 'index.html', {'form': form, 'products': products, 'user': request.user.profile})
+    else:
         products = Product.objects.filter(is_active=True)
+        form = ProductForm()
+        if request.user.profile.role != 'operator':
+            return HttpResponse("You are viewer, You are not authorized to create an order.", status=403)
         return render(request, 'index.html', {'form': form, 'products': products, 'user': request.user.profile})
 @login_required
 def create_order(request):

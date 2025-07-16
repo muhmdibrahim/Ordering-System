@@ -1,0 +1,159 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-16 21:31+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+#: .\templates\base.html:49
+msgid "Products"
+msgstr "المنتجات"
+
+#: .\templates\base.html:50
+msgid "Orders"
+msgstr "الطلبات"
+
+#: .\templates\base.html:58
+msgid "Switch Language"
+msgstr "تغيير اللغة"
+
+#: .\templates\base.html:69
+msgid "July 2025 Poultry Task, created by @Mohamed Ibrahim"
+msgstr "يوليو 2025 تاسك شركة بولتري سينك ، تم انشاءه بواسطة @محمد ابراهيم"
+
+#: .\templates\index.html:12
+msgid "Product List"
+msgstr "قائمة المنتجات"
+
+#: .\templates\index.html:13
+msgid "Welcome"
+msgstr "مرحبا"
+
+#: .\templates\index.html:14
+msgid "only"
+msgstr "فقط"
+
+#: .\templates\index.html:14
+msgid "active"
+msgstr "المنتجات النشطة"
+
+#: .\templates\index.html:14
+msgid "products are shown"
+msgstr "معروضة أمامكم"
+
+#: .\templates\index.html:19
+msgid "Name"
+msgstr "اسم المنتج"
+
+#: .\templates\index.html:20
+msgid "Stock"
+msgstr "المخزون منها"
+
+#: .\templates\index.html:21
+msgid "Price"
+msgstr "السعر"
+
+#: .\templates\index.html:22 .\templates\orders.html:24
+msgid "Company"
+msgstr "الشركة"
+
+#: .\templates\index.html:23
+msgid "User"
+msgstr "صاحب المنتج"
+
+#: .\templates\index.html:24 .\templates\orders.html:23
+msgid "Status"
+msgstr "الحالة"
+
+#: .\templates\index.html:25 .\templates\orders.html:27
+msgid "Created At"
+msgstr "تاريخ الانشاء"
+
+#: .\templates\index.html:26
+msgid "Actions"
+msgstr "اجراء"
+
+#: .\templates\index.html:40
+msgid "Delete"
+msgstr "حذف"
+
+#: .\templates\index.html:46
+msgid "No products available."
+msgstr "لا يوجد منتجات متاحة."
+
+#: .\templates\index.html:52 .\templates\index.html:57
+msgid "Add Product"
+msgstr "اضافة منتجات"
+
+#: .\templates\index.html:60
+msgid "Add New Order"
+msgstr "طلب منتج جدبد"
+
+#: .\templates\index.html:65
+msgid "Select Product:"
+msgstr "اختيار منتج"
+
+#: .\templates\index.html:67
+msgid "-- Choose a product --"
+msgstr "اختار منتج"
+
+#: .\templates\index.html:73
+msgid "Quantity:"
+msgstr "الكمية"
+
+#: .\templates\index.html:76
+msgid "Create Order"
+msgstr "طلب  منتج جديد"
+
+#: .\templates\orders.html:8
+msgid "Order Success"
+msgstr "صفحة الطلبات"
+
+#: .\templates\orders.html:13
+msgid "Order Created Successfully!"
+msgstr "تم طلب المنتج بنجاح"
+
+#: .\templates\orders.html:14
+msgid "Order ID:"
+msgstr "رقم الطلب"
+
+#: .\templates\orders.html:15
+msgid "Status:"
+msgstr "الحالة"
+
+#: .\templates\orders.html:16
+msgid "Company:"
+msgstr "الشركة"
+
+#: .\templates\orders.html:19
+msgid "Orders List"
+msgstr "قائمة الطلبات"
+
+#: .\templates\orders.html:22
+msgid "Order ID"
+msgstr "رقم الطلب"
+
+#: .\templates\orders.html:25
+msgid "Product"
+msgstr "المنتج"
+
+#: .\templates\orders.html:26
+msgid "Quantity"
+msgstr "الكمية"
+
+#: .\templates\orders.html:40
+msgid "No orders available."
+msgstr "لا يوجد طلبات متاحة."
