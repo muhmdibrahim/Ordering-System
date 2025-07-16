@@ -22,6 +22,7 @@ def add_product(request):
                 product.save()
                 return HttpResponse("Product added successfully.", status=201)
             else:
+                products = Product.objects.filter(is_active=True)
                 form = ProductForm()
                 return render(request, 'index.html', {'form': form, 'products': products, 'user': request.user.profile})
     else:
