@@ -38,7 +38,7 @@ def create_order(request):
             return HttpResponse("Insufficient stock for the requested quantity.", status=400)
         if request.user.profile.role != 'operator':
             return HttpResponse("You are viewer, You are not authorized to create an order.", status=403)
-        if product.stock > quantity:
+        if product.stock >= quantity:
             product.stock -= quantity
             product.save()
         new_order = order.objects.create(
