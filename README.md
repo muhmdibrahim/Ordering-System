@@ -1,6 +1,7 @@
 # 🛠️ Django Project: [Ordering System]
 
-A Django-based application where each company manages its own orders and products.
+A Django-based application where each company manages its own orders and products in both versions↙️.
+### (English, Arabic).
 
 ---
 ### Please After Cloning This Proj,
